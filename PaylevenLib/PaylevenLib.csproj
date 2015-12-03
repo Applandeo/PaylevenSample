@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectTypeGuids>{8FFB629D-F513-41CE-95D2-7ECE97B6EEEC};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <ProjectGuid>{096D8FD7-CD29-49A4-9705-113848ACDA0C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>PaylevenLib</RootNamespace>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <AssemblyName>PaylevenLib</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="Xamarin.iOS" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
+    <Folder Include="Resources\AdyenToolkit.bundle\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="libPaylevenSDK.linkwith.cs">
+      <DependentUpon>libPaylevenSDK.a</DependentUpon>
+    </Compile>
+    <Compile Include="libAdyenToolkit.linkwith.cs">
+      <DependentUpon>libAdyenToolkit.a</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ObjcBindingApiDefinition Include="ApiDefinition.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ObjcBindingCoreSource Include="StructsAndEnums.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.ObjCBinding.CSharp.targets" />
+  <ItemGroup>
+    <ObjcBindingNativeLibrary Include="libPaylevenSDK.a">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </ObjcBindingNativeLibrary>
+    <ObjcBindingNativeLibrary Include="libAdyenToolkit.a" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Headers\PaylevenSDK.h" />
+    <None Include="Headers\PLVDevice.h" />
+    <None Include="Headers\PLVPayleven.h" />
+    <None Include="Headers\PLVPaylevenErrors.h" />
+    <None Include="Headers\PLVPaymentRequest.h" />
+    <None Include="Headers\PLVPaymentResult.h" />
+    <None Include="Headers\PLVPaymentResultAdditionalData.h" />
+    <None Include="Headers\PLVPaymentTask.h" />
+    <None Include="Headers\PLVReceiptGenerator.h" />
+    <None Include="Headers\PLVRefund.h" />
+    <None Include="Headers\PLVRefundRequest.h" />
+    <None Include="Headers\PLVRefundResult.h" />
+    <None Include="Headers\PLVRefundTask.h" />
+    <None Include="Headers\ADYAccountData.h" />
+    <None Include="Headers\ADYAdditionalDataRequest.h" />
+    <None Include="Headers\ADYAppData.h" />
+    <None Include="Headers\ADYConstants.h" />
+    <None Include="Headers\ADYCurrency.h" />
+    <None Include="Headers\ADYDevice.h" />
+    <None Include="Headers\ADYDeviceData.h" />
+    <None Include="Headers\ADYDeviceManagerDelegate.h" />
+    <None Include="Headers\ADYDeviceRegistry.h" />
+    <None Include="Headers\ADYDynamicCurrencyConversionData.h" />
+    <None Include="Headers\Adyen.h" />
+    <None Include="Headers\AdyenToolkit.h" />
+    <None Include="Headers\ADYErrors.h" />
+    <None Include="Headers\ADYLoginDelegate.h" />
+    <None Include="Headers\ADYMotoTransactionRequest.h" />
+    <None Include="Headers\ADYPrintReceiptRequest.h" />
+    <None Include="Headers\ADYReceipt.h" />
+    <None Include="Headers\ADYReceiptLine.h" />
+    <None Include="Headers\ADYRefundData.h" />
+    <None Include="Headers\ADYRefundRequest.h" />
+    <None Include="Headers\ADYServerSynchronization.h" />
+    <None Include="Headers\ADYSignatureRequest.h" />
+    <None Include="Headers\ADYTransactionData.h" />
+    <None Include="Headers\ADYTransactionProcessorDelegate.h" />
+    <None Include="Headers\ADYTransactionRequest.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\AdyenToolkit.bundle\adyentoolkit.momd\VersionInfo.plist" />
+    <BundleResource Include="Resources\AdyenToolkit.bundle\adyentoolkit.momd\adyentoolkit v1.10.2.mom" />
+    <BundleResource Include="Resources\AdyenToolkit.bundle\adyentoolkit.momd\adyentoolkit v1.10.3.mom" />
+    <BundleResource Include="Resources\AdyenToolkit.bundle\adyentoolkit.momd\adyentoolkit v1.10.3.omo" />
+    <BundleResource Include="Resources\AdyenToolkit.bundle\adyentoolkit.momd\adyentoolkit v1.10.mom" />
+    <BundleResource Include="Resources\AdyenToolkit.bundle\adyentoolkit.momd\adyentoolkit v1.8.6.mom" />
+    <BundleResource Include="Resources\AdyenToolkit.bundle\adyentoolkit.momd\adyentoolkit v1.9.mom" />
+    <BundleResource Include="Resources\AdyenToolkit.bundle\adyentoolkit.momd\adyentoolkit.mom" />
+  </ItemGroup>
+</Project>
